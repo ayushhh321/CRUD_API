@@ -5,7 +5,7 @@ const app = express()
 
 //routes- we have to declare routes so that web browser access the our web page
 app.get('/', (req,res)=>{
-  res.send('Hello Node API')
+  res.send('Hello Node API (changing to see nodemon')
 })
 
 
