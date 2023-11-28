@@ -2,7 +2,7 @@
 
 
 const express = require('express')
-const mongoose = require('mongoose')
+const mongoose = require('mongoose')//conected to mongodb
 const Product = require('./models/productModel')
 const app = express()
 
@@ -84,13 +84,12 @@ app.delete('/products/:id', async(req, res) =>{
 })
 
 mongoose.set("strictQuery", false)
-mongoose.
-connect('mongodb+srv://admin:12345678Admin@devtaminapi.zpncstm.mongodb.net/Node-API?retryWrites=true&w=majority')
+mongoose.connect('mongodb+srv://AYUSH:9835456039@cluster0.hofxigh.mongodb.net/?retryWrites=true&w=majority')//connected to atlas
 .then(() => {
-    console.log('connected to MongoDB')
+    console.log('connected to MongoDB')//when app is conncted to mongodb it will display this message 
     app.listen(3000, ()=> {
-        console.log(`App is running on port 3000 <ayush bhai>`)
+        console.log(`App is running on port 3000 <ayush bhai>`)//after connected to mongodb it will shows App is running..
     });
 }).catch((error) => {
-    console.log(error)
+    console.log(error)//if there is any issue it will shows "error"
 })
