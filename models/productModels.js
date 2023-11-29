@@ -1,10 +1,10 @@
 const mongoose = require('mongoose')
 
-const productSchema = mongoose.Schema(
+const productSchema = mongoose.Schema(//for product model we need schema so here we added it
     {
         ProductName: {
             type: String,
-            required: [true, "Please enter a product name"],
+            required: [true, "Please enter a product name"],//validation method
         },
         ProductDescription: {
           type: String,
@@ -33,7 +33,7 @@ const productSchema = mongoose.Schema(
     }
     },
     {
-        timestamps: true
+        timestamps: true//it will give time and date everytime you add data 
     }
 )
 
