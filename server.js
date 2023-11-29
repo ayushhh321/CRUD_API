@@ -19,14 +19,14 @@ app.get('/blog', (req, res) => {
     res.send('Hello testing GET')
 })
 
-// app.get('/products', async(req, res) => {
-//     try {
-//         const products = await Product.find({});
-//         res.status(200).json(products);
-//     } catch (error) {
-//         res.status(500).json({message: error.message})
-//     }
-// })
+app.get('/products', async(req, res) => {//for fetching or getting data from database
+    try {
+        const products = await Product.find({});
+        res.status(200).json(products);
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+})
 
 // app.get('/products/:id', async(req, res) =>{
 //     try {
