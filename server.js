@@ -51,7 +51,7 @@ app.post('/products', async(req, res) => {
 })
 
 //update a product
-app.put('/products/:id', async(req, res) => {
+app.put('/products/:id', async(req, res) => {//here route is PUT make sure to use PUT in postman to getting products
     try {
         const {id} = req.params;
         const product = await Product.findByIdAndUpdate(id, req.body);
@@ -69,19 +69,19 @@ app.put('/products/:id', async(req, res) => {
 
 // // delete a product
 
-// app.delete('/products/:id', async(req, res) =>{
-//     try {
-//         const {id} = req.params;
-//         const product = await Product.findByIdAndDelete(id);
-//         if(!product){
-//             return res.status(404).json({message: `cannot find any product with ID ${id}`})
-//         }
-//         res.status(200).json(product);
+app.delete('/products/:id', async(req, res) =>{//here route is DELETE make sure to use DELETE in postman to getting products
+    try {
+        const {id} = req.params;
+        const product = await Product.findByIdAndDelete(id);
+        if(!product){
+            return res.status(404).json({message: `cannot find any product with ID ${id}`})
+        }
+        res.status(200).json(product);
         
-//     } catch (error) {
-//         res.status(500).json({message: error.message})
-//     }
-// })
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+})
 
 mongoose.set("strictQuery", false)
 mongoose.connect('mongodb+srv://AYUSH:9835456039@cluster0.hofxigh.mongodb.net/?retryWrites=true&w=majority')//connected to atlas
