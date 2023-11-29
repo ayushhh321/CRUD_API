@@ -28,15 +28,15 @@ app.get('/products', async(req, res) => {//for fetching or getting data from dat
     }
 })
 
-// app.get('/products/:id', async(req, res) =>{
-//     try {
-//         const {id} = req.params;
-//         const product = await Product.findById(id);
-//         res.status(200).json(product);
-//     } catch (error) {
-//         res.status(500).json({message: error.message})
-//     }
-// })
+app.get('/products/:id', async(req, res) =>{
+    try {
+        const {id} = req.params;
+        const product = await Product.findById(id);
+        res.status(200).json(product);
+    } catch (error) {
+        res.status(500).json({message: error.message})
+    }
+})
 
 
 app.post('/products', async(req, res) => {
