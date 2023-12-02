@@ -1,6 +1,7 @@
 //added server.js in package.json so use npm run serve
 
 
+
 const express = require('express')
 const mongoose = require('mongoose')//conected to mongodb
 const Product = require('./models/productModels')
