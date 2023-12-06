@@ -9,7 +9,7 @@ const productSchema = mongoose.Schema(//for product model we need schema so here
 
         subgroup: {
             type: String,
-            required: [true,],//validation method
+            required: [true,],//validation method  
         },
 
         brand: {
