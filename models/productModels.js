@@ -7,7 +7,7 @@ const descSchema = new mongoose.Schema({
       of: mongoose.Schema.Types.Mixed,
       required: true,
     },
-  }, { _id: false });
+  }, { _id: false });//using id=false to disbale automatic id generation in mongoDB
   
   // Subdocument schema for 'attrs'
   const attrsSchema = new mongoose.Schema({
