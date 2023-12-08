@@ -66,13 +66,13 @@ const productSchema = mongoose.Schema(//for product model we need schema so here
             required: [true,],//validation method
         },
 
-        //desc we can make another api
+  
        
         
 
         attrs: {
             imgs: {
-                type: [String], // an array of strings
+                type: [String], // an array of strings image
                 required: [true, "Please provide at least one image URL"],
             }
         },
@@ -100,7 +100,7 @@ const productSchema = mongoose.Schema(//for product model we need schema so here
 
         
       
-
+//this two are made for future purpose
         // NumberOfItemInStock: {
         //     type: Number,
         //     required: [true,],//validation method
