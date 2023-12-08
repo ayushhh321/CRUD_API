@@ -13,25 +13,21 @@ const descSchema = new mongoose.Schema({
   const attrsSchema = new mongoose.Schema({
     design: {
       type: String,
-      required: true,
+      required: true, //values where user needs to click to see changes in variation
     },
     imgs: {
       type: String,
       required: true,
     },
-  }, { _id: false });
+  }, { _id: false });//using id=false to disbale automatic id generation in mongoDB
   
   // Subdocument schema for 'design'
-  const designSchema = new mongoose.Schema({
+  const designSchema = new mongoose.Schema({//it consist of all the feilds that inside a variation
     product_id: {
         type: String,
         required: [true,],//validation method
     },
 
-    plyUnit: {
-        type: Number,
-        required: [true,],//validation method
-    },
 
     labourPerFloor: {
         type: Number,
