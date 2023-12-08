@@ -3,26 +3,26 @@ const mongoose = require('mongoose')
 // Subdocument schema for 'desc'
 const descSchema = new mongoose.Schema({
     specifications: {
-      type: Map, 
-      of: mongoose.Schema.Types.Mixed,
-      required: true,
+        type: Map,
+        of: mongoose.Schema.Types.Mixed,
+        required: true,
     },
-  }, { _id: false });//using id=false to disbale automatic id generation in mongoDB
-  
-  // Subdocument schema for 'attrs'
-  const attrsSchema = new mongoose.Schema({
+}, { _id: false });//using id=false to disbale automatic id generation in mongoDB
+
+// Subdocument schema for 'attrs'
+const attrsSchema = new mongoose.Schema({
     design: {
-      type: String,
-      required: true, //values where user needs to click to see changes in variation
+        type: String,
+        required: true, //values where user needs to click to see changes in variation
     },
     imgs: {
-      type: String,
-      required: true,
+        type: String,
+        required: true,
     },
-  }, { _id: false });//using id=false to disbale automatic id generation in mongoDB
-  
-  // Subdocument schema for 'design'
-  const designSchema = new mongoose.Schema({//it consist of all the feilds that inside a variation
+}, { _id: false });//using id=false to disbale automatic id generation in mongoDB
+
+// Subdocument schema for 'design'
+const designSchema = new mongoose.Schema({//it consist of all the feilds that inside a variation
     product_id: {
         type: String,
         required: [true,],//validation method
@@ -56,15 +56,15 @@ const descSchema = new mongoose.Schema({
         type: Number,
         required: [true,],//validation method
     },
-    
+
     desc: descSchema, //calling function for desc bcz desc is dynamic
     attrs: attrsSchema, //calling function for design and image inside of attrs bcz attrs is dynamic
-  }, { _id: false });
-  
-  // Main schema for 'vars'
-  const varsSchema = new mongoose.Schema({
+}, { _id: false });
+
+// Main schema for 'vars'
+const varsSchema = new mongoose.Schema({
     design: [designSchema], // Array of designs
-  }, { _id: false });
+}, { _id: false });
 
 
 const productSchema = mongoose.Schema(//basic product model consist of all parameter including vars
@@ -73,7 +73,7 @@ const productSchema = mongoose.Schema(//basic product model consist of all param
             type: String,
             required: [true,],//validation method
         },
-        
+
 
         subgroup: {
             type: String,
@@ -119,7 +119,7 @@ const productSchema = mongoose.Schema(//basic product model consist of all param
             type: String,
             required: [true,],//validation method
         },
-  
+
 
         category: {
             type: String,
@@ -130,10 +130,6 @@ const productSchema = mongoose.Schema(//basic product model consist of all param
             type: String,
             required: [true,],//validation method
         },
-
-  
-       
-        
 
         attrs: {
             imgs: {
@@ -163,32 +159,29 @@ const productSchema = mongoose.Schema(//basic product model consist of all param
             required: [true,],//validation method
         },
 
-        desc: descSchema,
-        //attrs: attrsSchema, // Include attrs directly in the main schema
-    //desc: descSchema,   // Include desc directly in the main schema
-    vars: varsSchema,
-        
-      
-//this two are made for future purpose
+        desc: descSchema,//desc/specification of product model is also dynamic thats why calling the same function that we called in vars.
+
+        vars: varsSchema,//declared vars before productModel and vars is nested of attrs and desc
+
+
+        //this two are made for future purpose
         // NumberOfItemInStock: {
         //     type: Number,
         //     required: [true,],//validation method
         //     default: 0
         // },
-       
-        
-    //   StockINorOUT: {
-    //     type: Boolean,
-    //     required: [true,],//validation method
-    // }
+
+        //   StockINorOUT: {
+        //     type: Boolean,
+        //     required: [true,],//validation method
+        // }
+
+
     },
     {
         timestamps: true//it will give time and date everytime you add data 
     }
 )
-
-
-
 
 
 const Product = mongoose.model('Product', productSchema);
