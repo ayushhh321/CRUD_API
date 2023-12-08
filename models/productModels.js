@@ -67,7 +67,7 @@ const descSchema = new mongoose.Schema({
   }, { _id: false });
 
 
-const productSchema = mongoose.Schema(//for product model we need schema so here we added it
+const productSchema = mongoose.Schema(//basic product model consist of all parameter including vars
     {
         group: {
             type: String,
@@ -97,7 +97,6 @@ const productSchema = mongoose.Schema(//for product model we need schema so here
 
         labourPerFloor: {
             type: Number,
-            //required: [true,],//validation method
             default: 0,
         },
 
@@ -108,7 +107,6 @@ const productSchema = mongoose.Schema(//for product model we need schema so here
 
         loadingUnloadingPrice: {
             type: Number,
-            //required: [true,],//validation method
             default: 0,
         },
 
