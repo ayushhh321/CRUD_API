@@ -28,7 +28,6 @@ const descSchema = new mongoose.Schema({
         required: [true,],//validation method
     },
 
-
     labourPerFloor: {
         type: Number,
         required: [true,],//validation method
@@ -57,37 +56,15 @@ const descSchema = new mongoose.Schema({
         type: Number,
         required: [true,],//validation method
     },
-    // design: {
-    //     type: String,
-    //     required: true,
-    //   },
-    //   imgs: {
-    //     type: String,
-    //     required: true,
-    //   },
-    // attrs: {
-    //     imgs: {
-    //         type: [String], // an array of strings image
-    //         required: [true, "Please provide at least one image URL"],
-    //     }
-    // },
-    desc: descSchema, //calling function for desc
-    attrs: attrsSchema, //calling function for design and image
+    
+    desc: descSchema, //calling function for desc bcz desc is dynamic
+    attrs: attrsSchema, //calling function for design and image inside of attrs bcz attrs is dynamic
   }, { _id: false });
   
   // Main schema for 'vars'
   const varsSchema = new mongoose.Schema({
     design: [designSchema], // Array of designs
   }, { _id: false });
-
-  //product desc:/specification
-// const descSchemaforproduct = new mongoose.Schema({
-//     specifications: {
-//       type: Map,
-//       of: mongoose.Schema.Types.Mixed,
-//       required: true,
-//     },
-//   }, { _id: false });
 
 
 const productSchema = mongoose.Schema(//for product model we need schema so here we added it
