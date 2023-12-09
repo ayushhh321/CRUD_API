@@ -85,4 +85,4 @@ Feel free to contribute by opening issues or submitting pull requests.
 
 ## License
 
-All right reserved
+Owner @ayushhh321
