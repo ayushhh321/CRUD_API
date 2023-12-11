@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+
 // Subdocument schema for 'desc'
 const descSchema = new mongoose.Schema({
     specifications: {
